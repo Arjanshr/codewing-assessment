@@ -32,7 +32,7 @@ class GithubLoginController extends Controller
                     'password' => bcrypt('password'),
                 ]);
             Auth::login($git_user);
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         } catch (Exception $e) {
             dd($e->getMessage());
         }
