@@ -9,7 +9,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                    Upload A  JSON file and convert it to Excel
+                   <form method="POST" action="{{route('upload_json')}}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="json_file" required/>
+                    <br/>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                   </form>
                 </div>
             </div>
         </div>
