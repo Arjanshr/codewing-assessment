@@ -2,23 +2,26 @@
 
 namespace App\Exports;
 
-use App\Models\User;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\FromArray;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class JsonExport implements FromCollection
+
+class JsonExport implements FromArray, ShouldQueue
 {
+    use Exportable;
     /**
     * @return \Illuminate\Support\Collection
     */
-    public $data;
+    protected $data;
 
     public function __construct($data)
     {
         $this->data = $data;
     }
 
-    public function collection()
+    public function array(): array
     {
-        return collect($this->data);
+        return $this->data;
     }
 }
