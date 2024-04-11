@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <div class="text-center">
-        <a href="">
+        <a href="{{route('github.login')}}">
             <img src=" https://icon-library.com/images/github-icon/github-icon-6.jpg" 
             alt="Github Icon"
             width="50px"
